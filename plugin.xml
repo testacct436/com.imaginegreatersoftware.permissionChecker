@@ -1,0 +1,33 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="plugin-permissionChecker"
+    version="1.0.0">
+    <name>cordova-plugin-permissionChecker</name>
+    <description>Provide means to check calling interprocess permission to use a given
+    permission-based resource . Also provide means to self-check that a given permission
+    has been granted for an operation of an app.
+    </description>
+<author>marv.y@imaginegreatersoftware.com</author>
+    <keywords>checkPermission, checkCallerPermission,checkselfpermission</keywords>
+    <license>M.I.T. License</license>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="permissionChecker" >
+                <param name="android-package" value="com.imaginegreatersoftware.permissionChecker"/>
+            </feature>
+        </config-file>
+    <source-file src="/lib/android/Release/checkpermissionR.aar", target-dir="/plugins/cordova-plugin-permissionChecker/lib/android/">
+    </source-file>
+    <js-module src="permissionChecker.js" name="permissionChecker.js">
+        <clobbers>com.imaginegreatersoftware</clobbers>
+    </js-module>
+   
+    </platform>
+<config-file target="AndroidManifest.xml" parent="/*/plugins/" device-target="phone">
+</config-file>
+
+<edit-config file="AndroidManifest.xml" target="/manifest/uses-sdk" mode="merge">
+    <uses-sdk android:minSdkVersion="19" android:maxSdkVersion="28" />
+</edit-config>
+    
+</plugin>
